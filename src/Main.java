@@ -16,6 +16,7 @@ public class Main {
         System.out.println(prueba.status());
         prueba.recharge();
         System.out.println(prueba.status());
+        System.out.println(prueba.energyLevel());
 
     }
 }
