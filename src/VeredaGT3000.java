@@ -5,10 +5,19 @@ public class VeredaGT3000 implements Vehicle{
     public int movementCount = 0;
     public int energyDelta;
 
-    public VeredaGT3000(String matricula, int energy, int energyDelta) {
+    public VeredaGT3000(String matricula, int maxEnergy, int energy, int energyDelta) {
         this.matricula = matricula;
+        this.maxEnergy = maxEnergy;
         this.energy = energy;
         this.energyDelta = energyDelta;
+    }
+
+    public int getMaxEnergy() {
+        return maxEnergy;
+    }
+
+    public void setMaxEnergy(int maxEnergy) {
+        this.maxEnergy = maxEnergy;
     }
 
     public String getMatricula() {
@@ -42,13 +51,23 @@ public class VeredaGT3000 implements Vehicle{
 
     @Override
     public void recharge() {
-        energy = maxEnergy;
+        if (energy == maxEnergy){
+            System.out.println("no se puede cargar mas energia");
+        } else {
+
+            energy = maxEnergy;
+        }
     }
 
     @Override
     public void move() {
-        energy = energy - energyDelta;
-        movementCount = movementCount+1;
+        if (energy == 0) {
+            System.out.println("la nave no tiene energia para moverse");
+        } else {
+
+            energy = energy - energyDelta;
+            movementCount = movementCount + 1;
+        }
     }
 
     @Override
